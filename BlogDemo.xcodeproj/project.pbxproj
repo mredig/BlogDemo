@@ -13,6 +13,7 @@
 		33233B71227F3D3700020920 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 33233B70227F3D3700020920 /* Assets.xcassets */; };
 		33233B74227F3D3700020920 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 33233B72227F3D3700020920 /* LaunchScreen.storyboard */; };
 		33233B7F227F3D3800020920 /* BlogDemoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33233B7E227F3D3800020920 /* BlogDemoTests.swift */; };
+		33A26E00227F6B0A007C24B0 /* Storyboard2.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 33A26DFF227F6B0A007C24B0 /* Storyboard2.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,6 +37,7 @@
 		33233B7A227F3D3800020920 /* BlogDemoTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BlogDemoTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		33233B7E227F3D3800020920 /* BlogDemoTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlogDemoTests.swift; sourceTree = "<group>"; };
 		33233B80227F3D3800020920 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		33A26DFF227F6B0A007C24B0 /* Storyboard2.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Storyboard2.storyboard; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -80,6 +82,7 @@
 				33233B69227F3D3400020920 /* AppDelegate.swift */,
 				33233B6B227F3D3400020920 /* ViewController.swift */,
 				33233B6D227F3D3400020920 /* Main.storyboard */,
+				33A26DFF227F6B0A007C24B0 /* Storyboard2.storyboard */,
 				33233B70227F3D3700020920 /* Assets.xcassets */,
 				33233B72227F3D3700020920 /* LaunchScreen.storyboard */,
 				33233B75227F3D3700020920 /* Info.plist */,
@@ -177,6 +180,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				33A26E00227F6B0A007C24B0 /* Storyboard2.storyboard in Resources */,
 				33233B74227F3D3700020920 /* LaunchScreen.storyboard in Resources */,
 				33233B71227F3D3700020920 /* Assets.xcassets in Resources */,
 				33233B6F227F3D3400020920 /* Main.storyboard in Resources */,
