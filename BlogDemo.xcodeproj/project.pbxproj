@@ -13,6 +13,7 @@
 		33233B71227F3D3700020920 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 33233B70227F3D3700020920 /* Assets.xcassets */; };
 		33233B74227F3D3700020920 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 33233B72227F3D3700020920 /* LaunchScreen.storyboard */; };
 		33233B7F227F3D3800020920 /* BlogDemoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33233B7E227F3D3800020920 /* BlogDemoTests.swift */; };
+		33DDFE6C22813ADA00A57091 /* EmbeddedTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33DDFE6B22813ADA00A57091 /* EmbeddedTableViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,6 +37,7 @@
 		33233B7A227F3D3800020920 /* BlogDemoTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BlogDemoTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		33233B7E227F3D3800020920 /* BlogDemoTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlogDemoTests.swift; sourceTree = "<group>"; };
 		33233B80227F3D3800020920 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		33DDFE6B22813ADA00A57091 /* EmbeddedTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmbeddedTableViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -79,6 +81,7 @@
 			children = (
 				33233B69227F3D3400020920 /* AppDelegate.swift */,
 				33233B6B227F3D3400020920 /* ViewController.swift */,
+				33DDFE6B22813ADA00A57091 /* EmbeddedTableViewController.swift */,
 				33233B6D227F3D3400020920 /* Main.storyboard */,
 				33233B70227F3D3700020920 /* Assets.xcassets */,
 				33233B72227F3D3700020920 /* LaunchScreen.storyboard */,
@@ -199,6 +202,7 @@
 			files = (
 				33233B6C227F3D3400020920 /* ViewController.swift in Sources */,
 				33233B6A227F3D3400020920 /* AppDelegate.swift in Sources */,
+				33DDFE6C22813ADA00A57091 /* EmbeddedTableViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
