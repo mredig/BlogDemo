@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="qia-GU-Acd">
+    <device id="retina6_1" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <capability name="Stack View standard spacing" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Find a Crew-->
+        <scene sceneID="kKR-uA-fg1">
+            <objects>
+                <tableViewController id="HQh-VB-Rp9" customClass="PersonSearchTableViewController" customModule="Find_a_Crew" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="e8t-cd-HYl">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <searchBar key="tableHeaderView" contentMode="redraw" placeholder="Search for a crewmate" id="S6h-dz-yYD">
+                            <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
+                            <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                            <textInputTraits key="textInputTraits" autocapitalizationType="words" autocorrectionType="no" spellCheckingType="no" returnKeyType="search" smartDashesType="no" smartInsertDeleteType="no" smartQuotesType="no" textContentType="name"/>
+                            <connections>
+                                <outlet property="delegate" destination="HQh-VB-Rp9" id="d1X-uT-5Gs"/>
+                            </connections>
+                        </searchBar>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="PersonTableViewCell" id="qkV-t7-K0C" customClass="PersonTableViewCell" customModule="Find_a_Crew" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="72" width="414" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="qkV-t7-K0C" id="AXA-JU-rWg">
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="GH2-l8-OfA">
+                                            <rect key="frame" x="20" y="11" width="374" height="22"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="752" ambiguous="YES" text="Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="P2z-LF-Mok">
+                                                    <rect key="frame" x="0.0" y="0.0" width="374" height="6"/>
+                                                    <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="28"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="752" ambiguous="YES" text="Gender" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KFJ-to-9iQ">
+                                                    <rect key="frame" x="0.0" y="14" width="374" height="0.0"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="751" text="Birth Year" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LXw-J7-VL3">
+                                                    <rect key="frame" x="0.0" y="22" width="374" height="0.0"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="94" id="p6z-IN-F28"/>
+                                            </constraints>
+                                        </stackView>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstAttribute="bottomMargin" secondItem="GH2-l8-OfA" secondAttribute="bottom" id="J1Y-Fj-FjQ"/>
+                                        <constraint firstAttribute="trailingMargin" secondItem="GH2-l8-OfA" secondAttribute="trailing" id="Qq2-Au-3UR"/>
+                                        <constraint firstItem="GH2-l8-OfA" firstAttribute="leading" secondItem="AXA-JU-rWg" secondAttribute="leadingMargin" id="TWY-DF-DRy"/>
+                                        <constraint firstItem="GH2-l8-OfA" firstAttribute="top" secondItem="AXA-JU-rWg" secondAttribute="topMargin" id="xiy-r9-A4U"/>
+                                    </constraints>
+                                </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="birthYearLabel" destination="LXw-J7-VL3" id="ybd-ou-fe0"/>
+                                    <outlet property="genderLabel" destination="KFJ-to-9iQ" id="jt9-XP-eA6"/>
+                                    <outlet property="nameLabel" destination="P2z-LF-Mok" id="sD9-2y-DDJ"/>
+                                </connections>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="HQh-VB-Rp9" id="Erf-tu-kJo"/>
+                            <outlet property="delegate" destination="HQh-VB-Rp9" id="KUq-US-QrZ"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="Find a Crew" id="sNJ-Aj-Vnj"/>
+                    <connections>
+                        <outlet property="searchBar" destination="S6h-dz-yYD" id="hm6-Gy-Coc"/>
+                    </connections>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Zs8-id-BgE" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1013.0434782608696" y="50.892857142857139"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="AJp-uG-h7f">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="qia-GU-Acd" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" largeTitles="YES" id="JbQ-8y-TfM">
+                        <rect key="frame" x="0.0" y="44" width="414" height="96"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="HQh-VB-Rp9" kind="relationship" relationship="rootViewController" id="fZA-WM-tnv"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ZbI-RA-3qz" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="102.89855072463769" y="50.892857142857139"/>
+        </scene>
+    </scenes>
+</document>

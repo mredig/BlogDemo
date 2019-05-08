@@ -1,8 +1,8 @@
 //
 //  AppDelegate.swift
-//  BlogDemo
+//  Find a Crew
 //
-//  Created by Michael Redig on 5/5/19.
+//  Created by Michael Redig on 5/7/19.
 //  Copyright © 2019 Michael Redig. All rights reserved.
 //
 
