@@ -10,20 +10,20 @@ import UIKit
 
 class ViewController: UIViewController {
 
-	let fakeTableView = IDontKnowEverything()
+	let fableView = IDontKnowEverything()
 	let fakeNetworking = IDoNetworking()
 
-	let fakeTableViewData = ["what I did on my summer vacation", "the first day on my vacation", "I woke up", "Then, I went downtown", "to get a job"]
+	let fableViewData = ["what I did on my summer vacation", "the first day on my vacation", "I woke up", "Then, I went downtown", "to get a job"]
 
 	override func viewDidLoad() {
 		super.viewDidLoad()
 		// Do any additional setup after loading the view.
 		fakeNetworking.delegate = self
-		fakeTableView.delegate = self
+		fableView.delegate = self
 	}
 
 	@IBAction func fakeATableViewPressed(_ sender: UIButton) {
-		fakeTableView.pretendToDisplayData()
+		fableView.pretendToDisplayData()
 	}
 
 	@IBAction func fakeANetworkRequestPressed(_ sender: UIButton) {
@@ -34,11 +34,11 @@ class ViewController: UIViewController {
 //Fill in the things it doesn't know!
 extension ViewController: IDontKnowEverythingDelegate {
 	func ignorantClassWantsACountOfStrings(_ ignorantClass: IDontKnowEverything) -> Int {
-		return fakeTableViewData.count
+		return fableViewData.count
 	}
 
 	func ignorantClass(_ ignorantClass: IDontKnowEverything, needsStringAtIndex index: Int) -> String {
-		return fakeTableViewData[index]
+		return fableViewData[index]
 	}
 }
 
