@@ -12,7 +12,7 @@ protocol IDoNetworkingDelegate: AnyObject {
 	func iDoNetworking(_ iDoNetworking: IDoNetworking, gotsTheDatas datas: [String])
 }
 
-//MARK:- this part acts something like a network manager
+//MARK:- this acts something like a network manager
 class IDoNetworking {
 
 	weak var delegate: IDoNetworkingDelegate?

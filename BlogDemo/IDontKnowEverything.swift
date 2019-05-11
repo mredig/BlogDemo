@@ -24,10 +24,7 @@ class IDontKnowEverything {
 
 	weak var delegate: IDontKnowEverythingDelegate?
 
-}
-
-//MARK:- this part acts something like a tableview
-extension IDontKnowEverything {
+	//MARK:- this acts something like a tableview
 
 	/**
 		For the sake of this example, this is just printing an array of strings, but think of it instead as determining and then displaying cells in a tableview
