@@ -39,12 +39,11 @@ class IDontKnowEverything {
 		let lowerBound = min(visibleRange.lowerBound, upperBound)
 		let visibleRangeOfValidData = lowerBound..<upperBound
 
-		var mahDatas = [String]()
+		// the rest of this section would happen quite differently irl - instead of printing Strings, it would instead call the `ignorantClass needsStringAtIndex` for each cell shown and then show each individual cell
 		for index in visibleRangeOfValidData {
 			let newString = delegate?.ignorantClass(self, needsStringAtIndex: index) ?? ""
-			mahDatas.append(newString)
+			print(newString) // our cell design is so much nicer than Apple's!
 		}
-		print(mahDatas)
 	}
 
 
