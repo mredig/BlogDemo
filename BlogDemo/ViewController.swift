@@ -13,7 +13,7 @@ class ViewController: UIViewController {
 	let fableView = IDontKnowEverything()
 	let fakeNetworking = IDoNetworking()
 
-	let fableViewData = ["what I did on my summer vacation", "the first day on my vacation", "I woke up", "Then, I went downtown", "to get a job"]
+	let fableViewData = ["what I did on my summer vacation", "the first day on my vacation", "I woke up", "Then, I went downtown", "to get a job"] // an elephant's worth of data
 
 	override func viewDidLoad() {
 		super.viewDidLoad()
