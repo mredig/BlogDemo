@@ -9,12 +9,17 @@
 import UIKit
 
 class ViewController: UIViewController {
+	@IBOutlet var lettersStackView: UIStackView!
+	
 
-	override func viewDidLoad() {
-		super.viewDidLoad()
-		// Do any additional setup after loading the view.
+	@IBAction func wigglePressed(_ sender: UIButton) {
 	}
 
+	@IBAction func flourishPressed(_ sender: UIButton) {
+	}
+
+	@IBAction func rainbowPressed(_ sender: UIButton) {
+	}
 
 }
 
