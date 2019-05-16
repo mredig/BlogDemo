@@ -21,14 +21,8 @@ class ViewController: UIViewController {
 	@IBAction func wigglePressed(_ sender: UIButton) {
 		enableButtons(false)
 		enableWiggle = true
-		for (index, letter) in lettersStackView.subviews.enumerated() {
-//			let animation = {
-//				let randomTransform = CGAffineTransform(scaleX: CGFloat.random(in: 0.8...1.2), y: CGFloat.random(in: 0.8...1.2))
-//				letter.transform = randomTransform
-//			}
-//			UIView.animate(withDuration: 0.1, animations: animation) { _ in
-//				UIView.animate(withDuration: 0.1, animations: animation, completion: nil)
-//			}
+		// start a random wiggle animation on each letter
+		for letter in lettersStackView.subviews {
 			animateWiggle(on: letter)
 		}
 	}
@@ -38,11 +32,14 @@ class ViewController: UIViewController {
 	}
 	
 	func animateWiggle(on view: UIView) {
+
+		// generate the wiggle animation
 		let animation = {
 			let randomTransform = CGAffineTransform(scaleX: CGFloat.random(in: 0.8...1.2), y: CGFloat.random(in: 0.8...1.2))
 			view.transform = randomTransform
 		}
 
+		// animate with the generated animation. on completion, either repeat this func, or if wiggle is disabled, run the finish wiggle func
 		UIView.animate(withDuration: TimeInterval.random(in: 0.08...0.12), animations: animation) { [weak self] _ in
 			if self?.enableWiggle ?? false {
 				self?.animateWiggle(on: view)
@@ -53,10 +50,11 @@ class ViewController: UIViewController {
 	}
 
 	func finishWiggle(on view: UIView) {
-		UIView.animate(withDuration: 0.1) { [weak self] in
+		UIView.animate(withDuration: 0.1, animations: {
+			//return each letter to its original state
 			view.transform = .identity
-			self?.enableButtons(true)
-		}
+		//reenable the buttons
+		}, completion: enableButtons)
 	}
 
 	@IBAction func flourishPressed(_ sender: UIButton) {
@@ -98,73 +96,7 @@ class ViewController: UIViewController {
 		}
 	}
 
-	@IBAction func rainbowPressed(_ sender: UIButton) {
-
-		for (index, letter) in lettersStackView.subviews.enumerated() {
-			guard let letter = letter as? UILabel else { continue }
-
-//			let colorKeyframeAnimation = CAKeyframeAnimation(keyPath: "textColor")
-//
-//			colorKeyframeAnimation.values = [UIColor.red.cgColor,
-//											 UIColor.green.cgColor,
-//											 UIColor.blue.cgColor]
-//			colorKeyframeAnimation.keyTimes = [0, 0.5, 1]
-//			colorKeyframeAnimation.duration = 2
-//			letter.layer.add(colorKeyframeAnimation, forKey: nil)
-			let delay = TimeInterval(index) * 0.05
-//			UIView.animateKeyframes(withDuration: 3, delay: delay, options: [], animations: {
-//				UIView.addKeyframe(withRelativeStartTime: 0, relativeDuration: 0.5, animations: {
-//					let changeColor = CATransition()
-//					changeColor.duration = 1.5
-//					CATransaction.begin()
-//					CATransaction.setCompletionBlock {
-//						letter.layer.add(changeColor, forKey: nil)
-//						letter.textColor = UIColor(hue: 1, saturation: 1, brightness: 1, alpha: 1)
-//					}
-//					CATransaction.commit()
-//				})
-//				UIView.addKeyframe(withRelativeStartTime: 0.5, relativeDuration: 0.5, animations: {
-//					let changeColor = CATransition()
-//					changeColor.duration = 1.5
-//					CATransaction.begin()
-//					CATransaction.setCompletionBlock {
-//						letter.layer.add(changeColor, forKey: nil)
-//						letter.textColor = UIColor(hue: 0, saturation: 1, brightness: 0, alpha: 1)
-//					}
-//					CATransaction.commit()
-//				})
-//			}, completion: nil)
-
-			UIView.animate(withDuration: 1.5, delay: delay, options: [], animations: {
-				let changeColor = CATransition()
-				changeColor.duration = 1.5
-				CATransaction.begin()
-				CATransaction.setCompletionBlock {
-					letter.layer.add(changeColor, forKey: nil)
-					letter.textColor = UIColor(hue: 1, saturation: 1, brightness: 1, alpha: 1)
-				}
-				CATransaction.commit()
-			}) { _ in
-				UIView.animate(withDuration: 1.5, animations: {
-					let changeColor = CATransition()
-					changeColor.duration = 1.5
-					CATransaction.begin()
-					CATransaction.setCompletionBlock {
-						letter.layer.add(changeColor, forKey: nil)
-						letter.textColor = UIColor(hue: 0, saturation: 1, brightness: 0, alpha: 1)
-					}
-					CATransaction.commit()
-				}, completion: nil)
-			}
-		}
-	}
-
-//	func disableButtons() {
-//		for case let button as UIButton in buttonStackView.subviews {
-//			button.isEnabled = false
-//		}
-//	}
-
+	// this button logic isn't perfect since it enables the stop wiggle even when theres no wiggling... but its late and im tired
 	func enableButtons(_ enable: Bool) {
 		for case let button as UIButton in buttonStackView.subviews {
 			button.isEnabled = enable
