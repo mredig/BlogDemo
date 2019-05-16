@@ -112,8 +112,15 @@
                                             <action selector="wigglePressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="KEV-ew-N2d"/>
                                         </connections>
                                     </button>
+                                    <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qTH-VB-thX">
+                                        <rect key="frame" x="222" y="0.0" width="84" height="30"/>
+                                        <state key="normal" title="Stop Wiggle"/>
+                                        <connections>
+                                            <action selector="stopWigglePressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Bhy-Vp-5GF"/>
+                                        </connections>
+                                    </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Q9q-LU-nIo">
-                                        <rect key="frame" x="351" y="0.0" width="55" height="30"/>
+                                        <rect key="frame" x="480" y="0.0" width="55" height="30"/>
                                         <state key="normal" title="Flourish"/>
                                         <connections>
                                             <action selector="flourishPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="enj-6l-Dwg"/>

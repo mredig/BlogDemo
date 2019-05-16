@@ -12,12 +12,57 @@ class ViewController: UIViewController {
 	@IBOutlet var lettersStackView: UIStackView!
 	@IBOutlet var buttonStackView: UIStackView!
 
+	override func viewDidLoad() {
+		enableButtons(true)
+	}
+
+
+	var enableWiggle = false
 	@IBAction func wigglePressed(_ sender: UIButton) {
+		enableButtons(false)
+		enableWiggle = true
+		for (index, letter) in lettersStackView.subviews.enumerated() {
+//			let animation = {
+//				let randomTransform = CGAffineTransform(scaleX: CGFloat.random(in: 0.8...1.2), y: CGFloat.random(in: 0.8...1.2))
+//				letter.transform = randomTransform
+//			}
+//			UIView.animate(withDuration: 0.1, animations: animation) { _ in
+//				UIView.animate(withDuration: 0.1, animations: animation, completion: nil)
+//			}
+			animateWiggle(on: letter)
+		}
+	}
+
+	@IBAction func stopWigglePressed(_ sender: UIButton) {
+		enableWiggle = false
+	}
+	
+	func animateWiggle(on view: UIView) {
+		let animation = {
+			let randomTransform = CGAffineTransform(scaleX: CGFloat.random(in: 0.8...1.2), y: CGFloat.random(in: 0.8...1.2))
+			view.transform = randomTransform
+		}
+
+		UIView.animate(withDuration: TimeInterval.random(in: 0.08...0.12), animations: animation) { [weak self] _ in
+			if self?.enableWiggle ?? false {
+				self?.animateWiggle(on: view)
+			} else {
+				self?.finishWiggle(on: view)
+			}
+		}
+	}
+
+	func finishWiggle(on view: UIView) {
+		UIView.animate(withDuration: 0.1) { [weak self] in
+			view.transform = .identity
+			self?.enableButtons(true)
+		}
 	}
 
 	@IBAction func flourishPressed(_ sender: UIButton) {
 		// disable buttons so that we dont have overlapping animations
-		disableButtons()
+//		disableButtons()
+		enableButtons(false)
 		// run this animation on *each* individual letter
 		for (index, letter) in lettersStackView.subviews.enumerated() {
 			// 1. get frame position
@@ -54,17 +99,78 @@ class ViewController: UIViewController {
 	}
 
 	@IBAction func rainbowPressed(_ sender: UIButton) {
-	}
 
-	func disableButtons() {
-		for case let button as UIButton in buttonStackView.subviews {
-			button.isEnabled = false
+		for (index, letter) in lettersStackView.subviews.enumerated() {
+			guard let letter = letter as? UILabel else { continue }
+
+//			let colorKeyframeAnimation = CAKeyframeAnimation(keyPath: "textColor")
+//
+//			colorKeyframeAnimation.values = [UIColor.red.cgColor,
+//											 UIColor.green.cgColor,
+//											 UIColor.blue.cgColor]
+//			colorKeyframeAnimation.keyTimes = [0, 0.5, 1]
+//			colorKeyframeAnimation.duration = 2
+//			letter.layer.add(colorKeyframeAnimation, forKey: nil)
+			let delay = TimeInterval(index) * 0.05
+//			UIView.animateKeyframes(withDuration: 3, delay: delay, options: [], animations: {
+//				UIView.addKeyframe(withRelativeStartTime: 0, relativeDuration: 0.5, animations: {
+//					let changeColor = CATransition()
+//					changeColor.duration = 1.5
+//					CATransaction.begin()
+//					CATransaction.setCompletionBlock {
+//						letter.layer.add(changeColor, forKey: nil)
+//						letter.textColor = UIColor(hue: 1, saturation: 1, brightness: 1, alpha: 1)
+//					}
+//					CATransaction.commit()
+//				})
+//				UIView.addKeyframe(withRelativeStartTime: 0.5, relativeDuration: 0.5, animations: {
+//					let changeColor = CATransition()
+//					changeColor.duration = 1.5
+//					CATransaction.begin()
+//					CATransaction.setCompletionBlock {
+//						letter.layer.add(changeColor, forKey: nil)
+//						letter.textColor = UIColor(hue: 0, saturation: 1, brightness: 0, alpha: 1)
+//					}
+//					CATransaction.commit()
+//				})
+//			}, completion: nil)
+
+			UIView.animate(withDuration: 1.5, delay: delay, options: [], animations: {
+				let changeColor = CATransition()
+				changeColor.duration = 1.5
+				CATransaction.begin()
+				CATransaction.setCompletionBlock {
+					letter.layer.add(changeColor, forKey: nil)
+					letter.textColor = UIColor(hue: 1, saturation: 1, brightness: 1, alpha: 1)
+				}
+				CATransaction.commit()
+			}) { _ in
+				UIView.animate(withDuration: 1.5, animations: {
+					let changeColor = CATransition()
+					changeColor.duration = 1.5
+					CATransaction.begin()
+					CATransaction.setCompletionBlock {
+						letter.layer.add(changeColor, forKey: nil)
+						letter.textColor = UIColor(hue: 0, saturation: 1, brightness: 0, alpha: 1)
+					}
+					CATransaction.commit()
+				}, completion: nil)
+			}
 		}
 	}
 
+//	func disableButtons() {
+//		for case let button as UIButton in buttonStackView.subviews {
+//			button.isEnabled = false
+//		}
+//	}
+
 	func enableButtons(_ enable: Bool) {
 		for case let button as UIButton in buttonStackView.subviews {
-			button.isEnabled = true
+			button.isEnabled = enable
+			if button.tag == 1 {
+				button.isEnabled = !enable
+			}
 		}
 	}
 
