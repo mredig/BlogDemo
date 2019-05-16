@@ -115,10 +115,16 @@
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Q9q-LU-nIo">
                                         <rect key="frame" x="351" y="0.0" width="55" height="30"/>
                                         <state key="normal" title="Flourish"/>
+                                        <connections>
+                                            <action selector="flourishPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="enj-6l-Dwg"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6q1-Yf-p0U">
                                         <rect key="frame" x="709" y="0.0" width="59" height="30"/>
                                         <state key="normal" title="Rainbow"/>
+                                        <connections>
+                                            <action selector="rainbowPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="8B4-u4-oet"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <constraints>
@@ -138,6 +144,7 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <connections>
+                        <outlet property="buttonStackView" destination="bmE-TP-7aM" id="L1z-kU-94o"/>
                         <outlet property="lettersStackView" destination="fEW-A8-vNY" id="L9o-wJ-DJJ"/>
                     </connections>
                 </viewController>
