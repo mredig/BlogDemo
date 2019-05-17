@@ -126,10 +126,15 @@ class ViewController: UIViewController {
 			return
 		}
 
+		// if we change the text in an animation closure, it doesn't wait for a delay or anything, it just changes it immediately,
+		// so we are compensating here (I don't know if this is a good workaround or not)
+		// we want this to change on its way "up", while it's near the pinacle of its scaling animation. (why it's at 0.18 delay instead of 0.2)
 		DispatchQueue.main.asyncAfter(deadline: .now() + duration * 0.18) {
 			label.text = "\(value)"
 		}
 
+		// scale the label up to 1.5 scale over 0.2 duration, then return to its identity over the remaining 0.8 of the duration with a spring animation
+		// upon completion of the animation (over 1 second total), call this function again to animate the next second going by.
 		UIView.animate(withDuration: duration * 0.2, animations: {
 			label.transform = CGAffineTransform(scaleX: 1.5, y: 1.5)
 		}) { _ in
