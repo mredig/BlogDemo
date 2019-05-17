@@ -12,6 +12,9 @@ class ViewController: UIViewController {
 	@IBOutlet var lettersStackView: UIStackView!
 	@IBOutlet var buttonStackView: UIStackView!
 
+	@IBOutlet var numberLabel: UILabel!
+
+
 	override func viewDidLoad() {
 		enableButtons(true)
 	}
@@ -103,6 +106,38 @@ class ViewController: UIViewController {
 			if button.tag == 1 {
 				button.isEnabled = !enable
 			}
+		}
+	}
+
+	@IBAction func countdownPressed(_ sender: UIButton) {
+		let value = 10
+		numberLabel.text = "\(value)"
+		enableButtons(false)
+		DispatchQueue.main.asyncAfter(deadline: .now() + 1) { [weak self] in
+			guard let self = self else { return }
+			self.animateCountdownIteration(duration: 1, onLabel: self.numberLabel, value: value - 1)
+		}
+	}
+
+	func animateCountdownIteration(duration: TimeInterval, onLabel label: UILabel, value: Int) {
+		guard value >= 0 else {
+			label.text = ""
+			enableButtons(true)
+			return
+		}
+
+		DispatchQueue.main.asyncAfter(deadline: .now() + duration * 0.18) {
+			label.text = "\(value)"
+		}
+
+		UIView.animate(withDuration: duration * 0.2, animations: {
+			label.transform = CGAffineTransform(scaleX: 1.5, y: 1.5)
+		}) { _ in
+			UIView.animate(withDuration: duration * 0.8, delay: 0, usingSpringWithDamping: 0.15, initialSpringVelocity: 0, options: [], animations: {
+				label.transform = .identity
+			}, completion: { [weak self] _ in
+				self?.animateCountdownIteration(duration: duration, onLabel: label, value: value - 1)
+			})
 		}
 	}
 
